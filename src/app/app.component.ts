@@ -9,5 +9,4 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   welcome = 'Aprende Angular pa trabajar';
-  tasks = ['Ver seven scissor', 'Aprender Angular'];
 }
