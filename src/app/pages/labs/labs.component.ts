@@ -1,15 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-labs',
-  imports: [NgFor, CommonModule ],
+  imports: [CommonModule],
   templateUrl: './labs.component.html',
-  styleUrl: './labs.component.scss'
+  styleUrl: './labs.component.scss',
 })
-export class LabsComponent {
-   welcome = 'Aprende Angular pa trabajar';
-  /* tasks = [{title: 'Ver seven scissor'}, {title: 'Aprender Angular'}]; */
-   tasks = ['Ver seven scissor', 'Aprender Angular'];
+export class LabsComponent implements OnInit {
+  tasks = [{ title: 'Ver seven scissor' }, { title: 'Aprender Angular' }];
+  /* tasks = ['Ver seven scissor', 'Aprender Angular']; */
+
+  aSignal = signal(0);
+  ngOnInit(): void {}
+
+  keyEventHandler(event: KeyboardEvent) {
+    this.aSignal.set(this.aSignal() + 1);
+  }
 }

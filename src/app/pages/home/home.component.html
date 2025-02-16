@@ -2,25 +2,42 @@
   <header class="header">
     <div class="container">
       <h1>My Day</h1>
-      <p>All my tasks in one place</p><input class="new-todo" placeholder="Type new todo" autofocus type="text" />
+      <p>All my tasks in one place</p>
+      <input class="new-todo" placeholder="Type new todo" autofocus type="text" (keyup)="changaHandler($event)" />
     </div>
   </header>
   <div class="container todoapp-wrapper">
     <!-- This section should be hidden by default and shown when there are todos -->
     <section class="main">
       <ul class="todo-list">
-        <li class="completed">
-          <div class="view"><input class="toggle" type="checkbox" checked /><label>Learn JavaScript</label><button
-              class="destroy"></button></div><input class="edit" value="Learn JavaScript" />
+        <li *ngFor="let item of tasksList(); index as i; trackBy: trackByFnTask">
+          <div class="view"><input class="toggle" type="checkbox" />
+            <label>{{item.task}}</label>
+            <button class="destroy" (click)="deleteTask(i)">
+            </button>
+          </div>
+          <input class="edit" value="Buy a unicorn" />
         </li>
+        <li class="completed">
+          <div class="view">
+            <input class="toggle" type="checkbox" checked />
+            <label>Learn JavaScript</label>
+            <button class="destroy"></button>
+          </div>
+          <input class="edit" value="Learn JavaScript" />
+        </li>
+        <!--
         <li>
           <div class="view"><input class="toggle" type="checkbox" /><label>Buy a unicorn</label><button
               class="destroy"></button></div><input class="edit" value="Buy a unicorn" />
         </li>
         <li class="editing">
-          <div class="view"><input class="toggle" type="checkbox" /><label>Make dishes</label><button
-              class="destroy"></button></div><input class="edit" value="Make dishes" />
+          <div class="view">
+            <input class="toggle" type="checkbox" /><label>Make dishes</label>
+            <button class="destroy"></button>
+          </div><input class="edit" value="Make dishes" />
         </li>
+        -->
       </ul>
     </section>
     <!-- This footer should be hidden by default and shown when there are todos -->
