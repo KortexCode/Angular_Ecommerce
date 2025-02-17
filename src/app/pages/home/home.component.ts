@@ -1,10 +1,11 @@
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule, FormControl, Validators } from '@angular/forms';
 import TaskModel from '../../models/task.model';
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
@@ -17,6 +18,11 @@ export class HomeComponent {
     },
     { id: Date.now().toString(), title: 'Aprender Angular', completed: false },
   ]);
+  newTaskControl = new FormControl('', {
+    nonNullable: true,
+    validators: [Validators.required],
+  });
+
   trackByFnTask(item: any): number {
     return item.task; // Usamos el ID único como clave
   }

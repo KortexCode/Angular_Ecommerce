@@ -211,7 +211,7 @@
   color: #484848;
 }
 
-.todo-list li.completed label {
+.todo-list li .toggle:checked + label {
   color: #949494;
   text-decoration: line-through;
 }

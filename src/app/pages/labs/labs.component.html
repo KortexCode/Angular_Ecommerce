@@ -7,4 +7,6 @@
     <li>Count:{{aSignal()}}</li>
   </ul>
   <input id="labs__input" class="labs-input" type="text" (keyup)="keyEventHandler($event)" value="">
+  <input class="labs-input" type="color" [formControl]="formControlColor">
+  <p>color: {{formControlColor.value}}</p>
 </section>
