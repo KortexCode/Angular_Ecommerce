@@ -9,3 +9,15 @@
   padding: 4px;
   border: 1px solid black;
 }
+
+.msg-error {
+  background-color: red;
+  color: white;
+  padding: 1px;
+  opacity: 0;
+  transition: all linear .5s;
+}
+
+.msg-error.show {
+  opacity: 1;
+}

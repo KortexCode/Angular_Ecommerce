@@ -9,4 +9,13 @@
   <input id="labs__input" class="labs-input" type="text" (keyup)="keyEventHandler($event)" value="">
   <input class="labs-input" type="color" [formControl]="formControlColor">
   <p>color: {{formControlColor.value}}</p>
+  <input class="labs-input" type="text" [formControl]="inputTextControl">
+  <hr>
+  <p>
+    <input type="text" [formControl]=" formControlclass"><br>
+    <span class="msg-error" [class.show]="formControlclass.invalid && formControlclass.touched">Invalid Name</span>
+  </p>
+  <p>
+    <input type="text">
+  </p>
 </section>
